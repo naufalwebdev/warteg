@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warteg Habibi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; 
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff; /* Warna putih */
+            border-radius: 8px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.623);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .menu-section {
+            margin-bottom: 20px;
+        }
+        .menu-section h2 {
+            color: #333; /* Warna abu-abu tua */
+        }
+        .menu-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .menu-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #32CD32; 
+            color: #fff; 
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #20B2AA; 
+        }
+        #total-harga {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+        .payment-method {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .payment-method input[type="radio"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Warteg Habibi</h1>
+
+        <label>Silahkan Pesan Disini</label>
+        
+        <div class="menu-section">
+            <h2>Makanan:</h2>
+            <div class="menu-item">
+                <input type="checkbox" id="Semur Jengkol" name="makanan" value="20000">
+                <label for="Semur Jengkol">Semur Jengkol (Rp 20.000)</label>
+            </div>
+            <div class="menu-item">
+                <input type="checkbox" id="Gabus Pucung" name="makanan" value="25000">
+                <label for="Gabus Pucung">Gabus Pucung (Rp 25.000)</label>
+            </div>
+            <div class="menu-item">
+                <input type="checkbox" id="Karedok" name="makanan" value="15000">
+                <label for="Karedok">Karedok (Rp 15.000)</label>
+            </div>
+            <div class="menu-item">
+                <input type="checkbox" id="Gado-gado" name="makanan" value="18000">
+                <label for="Gado-gado">Gado-gado (Rp 18.000)</label>
+            </div>
+            <div class="menu-item">
+                <input type="checkbox" id="Nasi Uduk" name="makanan" value="10000">
+                <label for="Nasi Uduk">Nasi Uduk (Rp 10.000)</label>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h2>Minuman:</h2>
+            <div class="menu-item">
+                <input type="checkbox" id="es-teh" name="minuman" value="5000">
+                <label for="es-teh">Es Teh Manis (Rp 5.000)</label>
+            </div>
+            <div class="menu-item">
+                <input type="checkbox" id="es-jeruk" name="minuman" value="6000">
+                <label for="es-jeruk">Es Jeruk (Rp 6.000)</label>
+            </div>
+            <div class="menu-item">
+                <input type="checkbox" id="es-kelapa" name="minuman" value="8000">
+                <label for="es-kelapa">Es Kelapa (Rp 8.000)</label>
+            </div>
+        </div>
+
+        <button onclick="hitungTotal()">Hitung Total Harga</button>
+        
+        <div id="total-harga"></div>
+
+        <div class="payment-method">
+            <h2>Metode Pembayaran:</h2>
+            <input type="radio" id="tunai" name="payment" value="tunai" checked>
+            <label for="tunai">Tunai</label>
+            <input type="radio" id="Dana" name="payment" value="Dana" checked>
+            <label for="Dana">Dana</label>
+            <input type="radio" id="Gopay" name="payment" value="Gopay" checked>
+            <label for="Gopay">Gopay</label>
+            <input type="radio" id="E-wallet" name="payment" value="E-wallet" checked>
+            <label for="E-wallet">E-wallet</label>
+        </div>
+    </div>
+
+    <script>
+        function hitungTotal() {
+            var totalHarga = 0;
+            var pesanan = document.querySelectorAll('input[name="makanan"]:checked, input[name="minuman"]:checked');
+            
+            pesanan.forEach(function(item) {
+                totalHarga += parseInt(item.value);
+            });
+
+            document.getElementById("total-harga").innerText = "Total harga pesanan: Rp " + totalHarga;
+
+            // Jika metode pembayaran non-tunai, tampilkan pesan
+            var metodePembayaran = document.querySelector('input[name="payment"]:checked').value;
+            if (metodePembayaran === "non-tunai") {
+                alert("Silakan tunjukkan pembayaran Anda melalui QR code atau metode non-tunai lainnya.");
+            }
+        }
+    </script>
+</body>
+</html>
