@@ -6,17 +6,17 @@
     <title>Warteg Habibi</title>
     <style>
         body {
+            background-image: url("BG.jpg");
             font-family: Arial, sans-serif;
-            background-color: #ffffff; 
             margin: 0;
             padding: 0;
         }
         .container {
-            max-width: 800px;
+            max-width: 300px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff; /* Warna putih */
-            border-radius: 8px;
+            padding: 50px;
+            background-color: #ffe0e0; 
+            border-radius: 20px;
             box-shadow: 0 0 50px rgba(0, 0, 0, 0.623);
         }
         h1 {
@@ -24,18 +24,32 @@
             color: #333;
         }
         .menu-section {
-            margin-bottom: 20px;
+            margin-bottom: 50px;
         }
         .menu-section h2 {
-            color: #333; /* Warna abu-abu tua */
+            color: #333; 
         }
         .menu-item {
-            display: flex;
-            align-items: center;
             margin-bottom: 10px;
         }
+        .menu-item label {
+            display: block;
+            margin-bottom: 5px;
+        }
         .menu-item input[type="checkbox"] {
+            display: inline-block;
             margin-right: 10px;
+        }
+        .menu-item input[type="range"] {
+            width: calc(100% - 40px);
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        .menu-item .slider-value {
+            display: inline-block;
+            width: 40px;
+            text-align: right;
+            vertical-align: middle;
         }
         button {
             display: block;
@@ -64,6 +78,14 @@
         .payment-method input[type="radio"] {
             margin-right: 10px;
         }
+        #qr-code {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #qr-code img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
@@ -75,40 +97,56 @@
         <div class="menu-section">
             <h2>Makanan:</h2>
             <div class="menu-item">
-                <input type="checkbox" id="Semur Jengkol" name="makanan" value="20000">
-                <label for="Semur Jengkol">Semur Jengkol (Rp 20.000)</label>
+                <input type="checkbox" id="Semur_Jengkol" name="makanan" value="20000">
+                <label for="Semur_Jengkol">Semur Jengkol (Rp 20.000)</label>
+                <input type="range" id="quantity_Semur_Jengkol" name="quantity_Semur_Jengkol" value="1" min="1" max="100" onchange="updateSliderValue(this)">
+                <span class="slider-value">1</span>
             </div>
             <div class="menu-item">
-                <input type="checkbox" id="Gabus Pucung" name="makanan" value="25000">
-                <label for="Gabus Pucung">Gabus Pucung (Rp 25.000)</label>
+                <input type="checkbox" id="Gabus_Pucung" name="makanan" value="25000">
+                <label for="Gabus_Pucung">Gabus Pucung (Rp 25.000)</label>
+                <input type="range" id="quantity_Gabus_Pucung" name="quantity_Gabus_Pucung" value="1" min="1" max="100" onchange="updateSliderValue(this)">
+                <span class="slider-value">1</span>
             </div>
             <div class="menu-item">
                 <input type="checkbox" id="Karedok" name="makanan" value="15000">
                 <label for="Karedok">Karedok (Rp 15.000)</label>
+                <input type="range" id="quantity_Karedok" name="quantity_Karedok" value="1" min="1" max="100" onchange="updateSliderValue(this)">
+                <span class="slider-value">1</span>
             </div>
             <div class="menu-item">
                 <input type="checkbox" id="Gado-gado" name="makanan" value="18000">
                 <label for="Gado-gado">Gado-gado (Rp 18.000)</label>
+                <input type="range" id="quantity_Gado_gado" name="quantity_Gado_gado" value="1" min="1" max="100" onchange="updateSliderValue(this)">
+                <span class="slider-value">1</span>
             </div>
             <div class="menu-item">
-                <input type="checkbox" id="Nasi Uduk" name="makanan" value="10000">
-                <label for="Nasi Uduk">Nasi Uduk (Rp 10.000)</label>
+                <input type="checkbox" id="Nasi_Uduk" name="makanan" value="10000">
+                <label for="Nasi_Uduk">Nasi Uduk (Rp 10.000)</label>
+                <input type="range" id="quantity_Nasi_Uduk" name="quantity_Nasi_Uduk" value="1" min="1" max="100" onchange="updateSliderValue(this)">
+                <span class="slider-value">1</span>
             </div>
         </div>
 
         <div class="menu-section">
             <h2>Minuman:</h2>
             <div class="menu-item">
-                <input type="checkbox" id="es-teh" name="minuman" value="5000">
-                <label for="es-teh">Es Teh Manis (Rp 5.000)</label>
+                <input type="checkbox" id="es_teh" name="minuman" value="5000">
+                <label for="es_teh">Es Teh Manis (Rp 5.000)</label>
+                <input type="range" id="quantity_es_teh" name="quantity_es_teh" value="1" min="1" max="100" onchange="updateSliderValue(this)">
+                <span class="slider-value">1</span>
             </div>
             <div class="menu-item">
-                <input type="checkbox" id="es-jeruk" name="minuman" value="6000">
-                <label for="es-jeruk">Es Jeruk (Rp 6.000)</label>
+                <input type="checkbox" id="es_jeruk" name="minuman" value="6000">
+                <label for="es_jeruk">Es Jeruk (Rp 6.000)</label>
+                <input type="range" id="quantity_es_jeruk" name="quantity_es_jeruk" value="1" min="1" max="100" onchange="updateSliderValue(this)">
+                <span class="slider-value">1</span>
             </div>
             <div class="menu-item">
-                <input type="checkbox" id="es-kelapa" name="minuman" value="8000">
-                <label for="es-kelapa">Es Kelapa (Rp 8.000)</label>
+                <input type="checkbox" id="es_kelapa" name="minuman" value="8000">
+                <label for="es_kelapa">Es Kelapa (Rp 8.000)</label>
+                <input type="range" id="quantity_es_kelapa" name="quantity_es_kelapa" value="1" min="1" max="100" onchange="updateSliderValue(this)">
+                <span class="slider-value">1</span>
             </div>
         </div>
 
@@ -120,13 +158,18 @@
             <h2>Metode Pembayaran:</h2>
             <input type="radio" id="tunai" name="payment" value="tunai" checked>
             <label for="tunai">Tunai</label>
-            <input type="radio" id="Dana" name="payment" value="Dana" checked>
+            <input type="radio" id="Dana" name="payment" value="Dana">
             <label for="Dana">Dana</label>
-            <input type="radio" id="Gopay" name="payment" value="Gopay" checked>
+            <input type="radio" id="Gopay" name="payment" value="Gopay">
             <label for="Gopay">Gopay</label>
-            <input type="radio" id="E-wallet" name="payment" value="E-wallet" checked>
-            <label for="E-wallet">E-wallet</label>
+            <input type="radio" id="E_wallet" name="payment" value="E-wallet">
+            <label for="E_wallet">E-wallet</label>
         </div>
+
+        <div id="qr-code" style="display: none;">
+           <center> <img src="QRCODE.jpg" alt="QR Code"> </center>
+        </div>
+
     </div>
 
     <script>
@@ -135,17 +178,27 @@
             var pesanan = document.querySelectorAll('input[name="makanan"]:checked, input[name="minuman"]:checked');
             
             pesanan.forEach(function(item) {
-                totalHarga += parseInt(item.value);
+                var quantity = parseInt(document.getElementById("quantity_" + item.id).value);
+                totalHarga += parseInt(item.value) * quantity;
             });
-
+    
             document.getElementById("total-harga").innerText = "Total harga pesanan: Rp " + totalHarga;
-
-            // Jika metode pembayaran non-tunai, tampilkan pesan
+    
+            // Jika metode pembayaran non-tunai, tampilkan pesan dan QR Code
             var metodePembayaran = document.querySelector('input[name="payment"]:checked').value;
-            if (metodePembayaran === "non-tunai") {
+            if (metodePembayaran !== "tunai") {
                 alert("Silakan tunjukkan pembayaran Anda melalui QR code atau metode non-tunai lainnya.");
+                document.getElementById("qr-code").style.display = "block";
+            } else {
+                document.getElementById("qr-code").style.display = "none";
             }
         }
+
+        function updateSliderValue(slider) {
+            var sliderValue = slider.value;
+            slider.nextElementSibling.innerText = sliderValue;
+        }
     </script>
+    
 </body>
 </html>
