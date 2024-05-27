@@ -31,23 +31,36 @@
         }
         .menu-item {
             margin-bottom: 10px;
+            position: relative;
+            display: flex;
+            align-items: center;
         }
-        .menu-item label {
-            display: block;
-            margin-bottom: 5px;
+        .menu-item .menu-name {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+        .menu-item .menu-name span {
+            background-image: url("label.png");
+            background-size: 270px 40px;
+            padding: 10px 20px;
         }
         .menu-item input[type="checkbox"] {
             display: inline-block;
             margin-right: 10px;
         }
         .menu-item input[type="range"] {
-            width: calc(100% - 40px);
-            margin-right: 10px;
-            vertical-align: middle;
+            width: calc(100% - 30px);
+            margin-right: 0px;
+            padding: 20px 30px;
+            vertical-align: top;
         }
         .menu-item .slider-value {
             display: inline-block;
-            width: 40px;
+            width: 0px;
             text-align: right;
             vertical-align: middle;
         }
@@ -97,32 +110,34 @@
         <div class="menu-section">
             <h2>Makanan:</h2>
             <div class="menu-item">
+                <div class="menu-name"><span>🌟 Semur Jengkol (Rp 20.000)</span></div>
+                
                 <input type="checkbox" id="Semur_Jengkol" name="makanan" value="20000">
-                <label for="Semur_Jengkol">Semur Jengkol (Rp 20.000)</label>
                 <input type="range" id="quantity_Semur_Jengkol" name="quantity_Semur_Jengkol" value="1" min="1" max="100" onchange="updateSliderValue(this)">
                 <span class="slider-value">1</span>
             </div>
             <div class="menu-item">
+                <div class="menu-name"><span>🔥 Gabus Pucung (Rp 25.000)</span></div>
+                
                 <input type="checkbox" id="Gabus_Pucung" name="makanan" value="25000">
-                <label for="Gabus_Pucung">Gabus Pucung (Rp 25.000)</label>
                 <input type="range" id="quantity_Gabus_Pucung" name="quantity_Gabus_Pucung" value="1" min="1" max="100" onchange="updateSliderValue(this)">
                 <span class="slider-value">1</span>
             </div>
             <div class="menu-item">
+                <div class="menu-name"><span>🥗 Karedok (Rp 15.000)</span></div>
                 <input type="checkbox" id="Karedok" name="makanan" value="15000">
-                <label for="Karedok">Karedok (Rp 15.000)</label>
                 <input type="range" id="quantity_Karedok" name="quantity_Karedok" value="1" min="1" max="100" onchange="updateSliderValue(this)">
                 <span class="slider-value">1</span>
             </div>
             <div class="menu-item">
+                <div class="menu-name"><span>🥗 Gado-gado (Rp 18.000)</span></div>
                 <input type="checkbox" id="Gado-gado" name="makanan" value="18000">
-                <label for="Gado-gado">Gado-gado (Rp 18.000)</label>
                 <input type="range" id="quantity_Gado_gado" name="quantity_Gado_gado" value="1" min="1" max="100" onchange="updateSliderValue(this)">
                 <span class="slider-value">1</span>
             </div>
             <div class="menu-item">
+                <div class="menu-name"><span>🍚 Nasi Uduk (Rp 10.000)</span></div>
                 <input type="checkbox" id="Nasi_Uduk" name="makanan" value="10000">
-                <label for="Nasi_Uduk">Nasi Uduk (Rp 10.000)</label>
                 <input type="range" id="quantity_Nasi_Uduk" name="quantity_Nasi_Uduk" value="1" min="1" max="100" onchange="updateSliderValue(this)">
                 <span class="slider-value">1</span>
             </div>
@@ -131,20 +146,23 @@
         <div class="menu-section">
             <h2>Minuman:</h2>
             <div class="menu-item">
+                <div class="menu-name"><span>🥤 Es Teh Manis (Rp 5.000)</span></div>
+                
                 <input type="checkbox" id="es_teh" name="minuman" value="5000">
-                <label for="es_teh">Es Teh Manis (Rp 5.000)</label>
                 <input type="range" id="quantity_es_teh" name="quantity_es_teh" value="1" min="1" max="100" onchange="updateSliderValue(this)">
                 <span class="slider-value">1</span>
             </div>
             <div class="menu-item">
+                <div class="menu-name"><span>🍊 Es Jeruk (Rp 6.000)</span></div>
+                
                 <input type="checkbox" id="es_jeruk" name="minuman" value="6000">
-                <label for="es_jeruk">Es Jeruk (Rp 6.000)</label>
                 <input type="range" id="quantity_es_jeruk" name="quantity_es_jeruk" value="1" min="1" max="100" onchange="updateSliderValue(this)">
                 <span class="slider-value">1</span>
             </div>
             <div class="menu-item">
+                <div class="menu-name"><span>🥥 Es Kelapa (Rp 8.000)</span></div>
+                
                 <input type="checkbox" id="es_kelapa" name="minuman" value="8000">
-                <label for="es_kelapa">Es Kelapa (Rp 8.000)</label>
                 <input type="range" id="quantity_es_kelapa" name="quantity_es_kelapa" value="1" min="1" max="100" onchange="updateSliderValue(this)">
                 <span class="slider-value">1</span>
             </div>
